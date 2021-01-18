@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        app:titleTextColor="@color/white"
+        android:background="@color/Primary"
+        android:textAlignment="center"
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:gravity="center_horizontal" />
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/B2D_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/binarytooctal"
+            layout="@layout/binary_to_decimal" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/B2O_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/octaltobinary"
+            layout="@layout/binary_to_octal" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/B2H_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/binarytooctal"
+            layout="@layout/binary_to_hexadecimal" />
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/D2B_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/binarytooctal"
+            layout="@layout/decimal_to_binary" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/D2O_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/octaltobinary"
+            layout="@layout/decimal_to_octal" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/D2H_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/binarytooctal"
+            layout="@layout/decimal_to_hexadecimal" />
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/O2B_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/binarytooctal"
+            layout="@layout/octal_to_binary" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/O2D_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/octaltobinary"
+            layout="@layout/octal_to_decimal" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/O2H_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/binarytooctal"
+            layout="@layout/octal_hexadecimal" />
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/H2B_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/binarytooctal"
+            layout="@layout/hexadecimal_to_binary" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/H2D_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/octaltobinary"
+            layout="@layout/hexadecimal_to_decimal" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/H2O_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/binarytooctal"
+            layout="@layout/hexadecimal_to_octal" />
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

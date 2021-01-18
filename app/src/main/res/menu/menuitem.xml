@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item
+        android:id="@+id/shareitem_id"
+        android:title="SHARE"
+        app:showAsAction="always"
+        >
+
+    </item>
+    <item
+        android:id="@+id/policyitem_id"
+        android:title="PRIVACY POLICY"
+        app:showAsAction="never"
+        >
+    </item>
+    <item
+        android:id="@+id/rateitem_id"
+        android:title="RATE THIS APP"
+        app:showAsAction="never"
+        >
+
+    </item>
+    <item
+        android:id="@+id/contactitem_id"
+        android:title="CONTACT US"
+        app:showAsAction="never"
+        >
+
+    </item>
+
+
+
+
+
+
+</menu>

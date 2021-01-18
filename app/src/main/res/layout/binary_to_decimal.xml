@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <androidx.cardview.widget.CardView
+                android:elevation="100dp"
+                android:layout_marginBottom="20dp"
+                android:paddingStart="10dp"
+                app:cardCornerRadius="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp">
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+                    <LinearLayout
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:textColor="#000"
+                            android:textSize="25sp"
+                            android:text="BINARY TO DECIMAL"
+                            android:textAlignment="center"
+                            android:padding="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/back1"
+                        android:orientation="horizontal"
+                        android:weightSum="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:clickable="true"
+                            android:cursorVisible="true"
+                            android:id="@+id/b2drndmresult"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:inputType="numberDecimal"
+                            android:padding="20dp"
+                            android:text="  "
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="15dp"
+                            android:gravity="center_horizontal">
+
+                        </TextView>
+
+
+                        <TextView
+                            android:paddingEnd="6dp"
+                            android:id="@+id/binarytodecimalrandortext_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:background="@color/Primary"
+                            android:padding="20dp"
+                            android:text="RANDOM"
+                            android:textAlignment="center"
+                            android:textColor="#fff"
+                            android:paddingRight="6dp"
+                            android:gravity="center_horizontal">
+
+                        </TextView>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:paddingStart="2dp"
+                        android:layout_marginTop="2dp"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="2dp">
+
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <TextView
+                                    android:paddingStart="6dp"
+                                    android:text="@string/math"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="6dp">
+
+
+                                </TextView>
+
+
+                            </LinearLayout>
+
+
+
+
+                        </ScrollView>
+
+
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/back1"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textbin1"
+                            android:textColor="#000"
+                            android:textSize="20sp"
+                            android:textAlignment="center"
+                            android:text=" "
+                            android:layout_weight="1"
+                            android:padding="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                        </TextView>
+
+
+                        <TextView
+                            android:textSize="18sp"
+                            android:id="@+id/b2dfinalresult"
+                            android:text="(?)10"
+                            android:textAlignment="center"
+                            android:layout_weight="1"
+                            android:padding="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                        </TextView>
+
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_marginEnd="6dp"
+                        android:layout_marginStart="6dp"
+                        android:id="@+id/b2ddtext_id"
+                        android:layout_marginBottom="30dp"
+                        android:textColor="#fff"
+                        android:background="@color/Primary"
+                        android:textSize="20dp"
+                        android:text="Try it"
+                        android:textAlignment="center"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal">
+
+                    </TextView>
+
+
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>

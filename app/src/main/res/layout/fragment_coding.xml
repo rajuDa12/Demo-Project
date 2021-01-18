@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#7986cb"
+        android:orientation="vertical">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+
+
+
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="80dp"
+                    android:elevation="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:background="#d1c4e9"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_marginTop="25dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <EditText
+                                android:layout_marginTop="5dp"
+                                android:id="@+id/inputedittextid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:background="@drawable/back1"
+                                android:hint="ENTER A NUMBER"
+                                android:padding="15dp"
+                                android:textColor="@color/black"
+                                android:textAlignment="center"
+                                android:gravity="center_horizontal">
+
+                            </EditText>
+
+
+
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:weightSum="7">
+
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="3"
+                                    android:background="@drawable/back1"
+
+                                    android:layout_marginLeft="10dp"
+                                    >
+                                    <Spinner
+                                        android:id="@+id/spinner1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:autofillHints="Select one"
+                                        >
+
+                                    </Spinner>
+                                </LinearLayout>
+
+
+
+                                <TextView
+                                    android:paddingStart="20dp"
+                                    android:drawableStart="@drawable/ic_baseline_arrow_forward_24"
+                                    android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:drawableLeft="@drawable/ic_baseline_arrow_forward_24"
+                                    android:paddingLeft="20dp">
+
+                                </TextView>
+
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="3"
+                                    android:background="@drawable/back1"
+
+                                    android:layout_marginRight="10dp"
+                                    >
+                                    <Spinner
+                                        android:id="@+id/spinner2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:autofillHints="Select one"
+
+                                        >
+
+                                    </Spinner>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                            <Button
+                                android:theme="@style/Platform.MaterialComponents"
+                                android:layout_marginBottom="20dp"
+                                android:id="@+id/convertbutoonid"
+                                android:elevation="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:background="@drawable/back1"
+                                android:padding="10dp"
+                                android:text="CONVERT"
+                                android:textSize="20sp">
+
+                            </Button>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="10dp"
+                    android:elevation="10dp"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="5dp">
+
+                    <LinearLayout
+                        android:background="@color/Primary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:weightSum="7">
+
+
+                        <TextView
+                            android:textColor="#fff"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:padding="15dp"
+                            android:text="RESULT"
+                            android:textSize="25dp">
+
+                        </TextView>
+
+
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:drawableStart="@drawable/ic_baseline_arrow_forward_24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight=".5"
+                            android:padding="15dp"
+                            android:textSize="20sp"
+                            android:layout_marginLeft="10dp"
+                            android:drawableLeft="@drawable/ic_baseline_arrow_forward_24">
+
+                        </TextView>
+
+                        <TextView
+                            android:textColor="#fff"
+                            android:id="@+id/result_text_id"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3.5"
+                            android:padding="15dp"
+                            android:text="1000"
+                            android:textSize="25dp">
+
+                        </TextView>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <RelativeLayout
+                    android:layout_marginTop="100dp"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:textSize="15dp"
+                        android:elevation="50dp"
+                        android:layout_marginTop="60dp"
+                        android:layout_marginStart="10dp"
+                        android:textColor="#fff"
+                        android:id="@+id/explain_button_id"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="20dp"
+                        android:drawableLeft="@drawable/ic_baseline_menu_book_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="120dp"
+                        android:background="@drawable/texteback"
+                        android:padding="15dp"
+                        android:paddingTop="5dp"
+                        android:text=" Explanation"
+                        android:layout_marginLeft="10dp">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="2dp"
+    android:background="#fff"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:id="@+id/binary_to_decimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="B2D"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="BINARY TO DECIMAL"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="#093143"
+                    android:textSize="18sp"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/binary_to_octal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="B"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="BINARY TO OCTAL"
+                    android:textColor="#093143"
+                    android:textSize="18sp"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/binary_to_hexadecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="B"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="BINARY TO HEXADECIMAL"
+                    android:textColor="#093143"
+
+                    android:textSize="15sp"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+
+                android:id="@+id/decimal_to_binary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="D"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="DECIMAL TO BINARY"
+                    android:textColor="#093143"
+                    android:textSize="18sp"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/decimal_to_octal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20sp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="D"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="DECIMAL TO OCTAL"
+                    android:textColor="#093143"
+
+                    android:textSize="18sp"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/decimal_to_hexadecimal"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="D"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="DECIMAL TO HEXADECIMAL"
+                    android:textColor="#093143"
+
+                    android:textSize="15sp"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/octal_to_binary"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="O"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="OCTAL TO BINARY"
+                    android:textColor="#093143"
+                    android:textSize="18sp"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/octal_to_decimal"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20sp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="O"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="OCTAL TO DECIMAL"
+                    android:textColor="#093143"
+
+                    android:textSize="18sp"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/octal_to_hexadecimal"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20sp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="O"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="OCTAL TO HEXADECIMAL"
+                    android:textColor="#093143"
+
+                    android:textSize="18sp"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/hexadecimal_to_binary"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20sp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="H"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="HEXADECIMAL TO BINARY"
+                    android:textColor="#093143"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hexadecimal_to_decimal"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20sp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="H"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="HEXADECIMAL TO DECIMAL"
+                    android:textColor="#093143"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hexadecimal_to_octal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/back1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#009688"
+                    android:padding="20dp"
+                    android:text="H"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:padding="20dp"
+                    android:paddingStart="8dp"
+                    android:text="HEXADECIMAL TO OCTAL"
+                    android:textColor="#093143"
+                    android:textSize="18sp"
+                    android:paddingLeft="8dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
