@@ -61,7 +61,8 @@
 
 
     <TextView
-        android:text="@string/math"
+        android:textSize="20dp"
+        android:text="th eequation neddd to solove tin this wayth eequation neddd to solove tin this wayth eequation neddd to solove tin this way"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -83,29 +84,7 @@
 
 
 
-    <TextView
-        android:padding="10dp"
-        android:id="@+id/b2dcalculation"
-        android:text="=CALCULATIN..."
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-    </TextView>
-
-
-
-
-
-
-    <TextView
-        android:id="@+id/b2dcalculationresult"
-        android:text="=RESULT..."
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </TextView>
 
 
     <LinearLayout

@@ -1,24 +1,29 @@
 package com.example.demoapp
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.text.TextUtils
 import android.text.method.DigitsKeyListener
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.example.demoapp.binary1.getOutput
+import com.example.demoapp.B2D.getOutput
 
 
+ var code:Int=0
 class CodingFragment : Fragment() {
 
     private var convert: Button? = null
     private var result: TextView? = null
     private var input: EditText? = null
     private var button: TextView? = null
+    private var spinner:Spinner?=null
+    private var spinner2:Spinner?=null
 
     var item = arrayOf("Decimal", "Binary", "Octal", "Hexadecimal")
     var item2 = arrayOf("Decimal", "Binary", "Octal", "Hexadecimal")
@@ -27,16 +32,15 @@ class CodingFragment : Fragment() {
     private var Adapter2: ArrayAdapter<String>? = null
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
 
-       val v:View=inflater.inflate(R.layout.fragment_coding, container, false)
+       val view:View=inflater.inflate(R.layout.fragment_coding, container, false)
 
 
-        val spinner: Spinner? = view?.findViewById(R.id.spinner1)
-        val spinner2: Spinner? = view?.findViewById(R.id.spinner2)
+         spinner= view?.findViewById(R.id.spinner1)
+         spinner2 =view?.findViewById(R.id.spinner2)
 
         Adapter = context?.let { ArrayAdapter(it, android.R.layout.simple_list_item_1, item) }
         Adapter!!.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
@@ -47,16 +51,16 @@ class CodingFragment : Fragment() {
         Adapter2!!.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
         spinner2?.adapter = Adapter2
 
-        input = view?.findViewById(R.id.inputedittextid)
-        convert = view?.findViewById(R.id.convertbutoonid)
+        input = view.findViewById(R.id.inputedittextid)
+        convert = view.findViewById(R.id.convertbutoonid)
 
-        button = view?.findViewById(R.id.explain_button_id)
+        button = view.findViewById(R.id.explain_button_id)
 
-        result = view?.findViewById(R.id.result_text_id)
+        result = view.findViewById(R.id.result_text_id)
 
 
         if (spinner != null) {
-            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            spinner!!.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long,) {
                     when (position) {
                         0 -> {
@@ -72,7 +76,7 @@ class CodingFragment : Fragment() {
                             input?.keyListener = DigitsKeyListener.getInstance("01234567.")
                         }
                         3 -> {
-                            input?.inputType = InputType.TYPE_CLASS_TEXT
+                            input?.inputType = InputType.TYPE_NUMBER_VARIATION_PASSWORD
                             input?.keyListener = DigitsKeyListener.getInstance("0123456789abcdefABCDEF.")
                         }
                     }
@@ -91,11 +95,13 @@ class CodingFragment : Fragment() {
 
             if (spinner != null) {
                 if (spinner2 != null) {
-                    if (spinner.selectedItem == "Binary" && (spinner2.selectedItem == "Decimal")) {
+                    if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Decimal")) {
 
+                        code=21
                         if (TextUtils.isEmpty(input?.text.toString())) {
                             input?.setError("enter a valid number")
                             input?.requestFocus()
+
                         } else {
 
                             val bin: String? = input?.getText()?.trim().toString()
@@ -109,21 +115,25 @@ class CodingFragment : Fragment() {
                         }
 
                     } else if (spinner2 != null) {
-                        if (spinner.selectedItem == "Binary" && (spinner2.selectedItem == "Octal")) {
-
+                        if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Octal")) {
+                            code=22
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
                                 input?.setError("enter a valid number")
                                 input?.requestFocus()
                             } else {
-                                val bin: String = input?.text?.trim().toString()
-                                val dec: Int = Integer.parseInt(bin.toString(), 2)
-                                val octal: String = Integer.toOctalString(dec.toInt())
-                                result?.setText("" + octal)
+                                val bin: String? = input?.getText()?.trim().toString()
+
+                                val d= getOutput(bin.toString())
+                                result?.text= d.toString()
+//                                val bin: String = input?.text?.trim().toString()
+//                                val dec: Int = Integer.parseInt(bin.toString(), 2)
+//                                val octal: String = Integer.toOctalString(dec.toInt())
+//                                result?.setText("" + octal)
                             }
 
 
-                        } else if (spinner.selectedItem == "Binary" && (spinner2.selectedItem == "Hexadecimal")) {
+                        } else if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Hexadecimal")) {
 
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
@@ -138,7 +148,7 @@ class CodingFragment : Fragment() {
                             }
 
 
-                        } else if (spinner.selectedItem == "Binary" && (spinner2.selectedItem == "Binary")) {
+                        } else if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Binary")) {
 
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
@@ -155,7 +165,7 @@ class CodingFragment : Fragment() {
                         //decimat to vice versa....
 
 
-                        else if (spinner.selectedItem == "Decimal" && (spinner2.selectedItem == "Decimal")) {
+                        else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Decimal")) {
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
                                 input?.setError("enter a valid number")
@@ -166,7 +176,7 @@ class CodingFragment : Fragment() {
                                 result?.setText("" + dec)
                             }
 
-                        } else if (spinner.selectedItem == "Decimal" && (spinner2.selectedItem == "Binary")) {
+                        } else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Binary")) {
 
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
@@ -180,7 +190,7 @@ class CodingFragment : Fragment() {
                             }
 
 
-                        } else if (spinner.selectedItem == "Decimal" && (spinner2.selectedItem == "Octal")) {
+                        } else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Octal")) {
 
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
@@ -194,7 +204,7 @@ class CodingFragment : Fragment() {
 
                             }
 
-                        } else if (spinner.selectedItem == "Decimal" && (spinner2.selectedItem == "Hexadecimal")) {
+                        } else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Hexadecimal")) {
 
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
@@ -212,7 +222,7 @@ class CodingFragment : Fragment() {
                         //octal to vice versa...
 
 
-                        else if (spinner.selectedItem == "Octal" && (spinner2.selectedItem == "Octal")) {
+                        else if (spinner!!.selectedItem == "Octal" && (spinner2!!.selectedItem == "Octal")) {
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
                                 input?.setError("enter a valid number")
@@ -222,7 +232,7 @@ class CodingFragment : Fragment() {
                                 result?.setText("" + octal)
                             }
 
-                        } else if (spinner.selectedItem == "Octal" && (spinner2.selectedItem == "Decimal")) {
+                        } else if (spinner!!.selectedItem == "Octal" && (spinner2!!.selectedItem == "Decimal")) {
 
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
@@ -235,7 +245,7 @@ class CodingFragment : Fragment() {
                             }
 
 
-                        } else if (spinner.selectedItem == "Octal" && (spinner2.selectedItem == "Binary")) {
+                        } else if (spinner!!.selectedItem == "Octal" && (spinner2!!.selectedItem == "Binary")) {
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
                                 input?.setError("enter a valid number")
@@ -249,7 +259,7 @@ class CodingFragment : Fragment() {
                             }
 
 
-                        } else if (spinner.selectedItem == "Octal" && (spinner2.selectedItem == "Hexadecimal")) {
+                        } else if (spinner!!.selectedItem == "Octal" && (spinner2!!.selectedItem == "Hexadecimal")) {
 
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
@@ -269,7 +279,7 @@ class CodingFragment : Fragment() {
                         //            hexa to vice versa....
 
 
-                        else if (spinner.selectedItem == "Hexadecimal" && (spinner2.selectedItem == "Hexadecimal")) {
+                        else if (spinner!!.selectedItem == "Hexadecimal" && (spinner2!!.selectedItem == "Hexadecimal")) {
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
                                 input?.setError("enter a valid number")
@@ -280,7 +290,7 @@ class CodingFragment : Fragment() {
                             }
 
 
-                        } else if (spinner.selectedItem == "Hexadecimal" && (spinner2.selectedItem == "Decimal")) {
+                        } else if (spinner!!.selectedItem == "Hexadecimal" && (spinner2!!.selectedItem == "Decimal")) {
                             if (TextUtils.isEmpty(input?.text.toString())) {
                                 input?.setError("enter a valid number")
                                 input?.requestFocus()
@@ -291,7 +301,7 @@ class CodingFragment : Fragment() {
                             }
 
 
-                        } else if (spinner.selectedItem == "Hexadecimal" && (spinner2.selectedItem == "Binary")) {
+                        } else if (spinner!!.selectedItem == "Hexadecimal" && (spinner2!!.selectedItem == "Binary")) {
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
                                 input?.setError("enter a valid number")
@@ -304,7 +314,7 @@ class CodingFragment : Fragment() {
                             }
 
 
-                        } else if (spinner.selectedItem == "Hexadecimal" && (spinner2.selectedItem == "Octal")) {
+                        } else if (spinner!!.selectedItem == "Hexadecimal" && (spinner2!!.selectedItem == "Octal")) {
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
                                 input?.setError("enter a valid number")
@@ -334,91 +344,118 @@ class CodingFragment : Fragment() {
 
             if (spinner2 != null) {
                 if (spinner != null) {
-                    if (spinner.selectedItem == "Binary" && (spinner2.selectedItem == "Decimal")) {
+                    if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Decimal")) {
+                          code=1
+
+                            var bin: String = input?.text?.trim().toString()
+//                            var d= getOutput(bin.toString())
+//                            result?.setText(""+d)
 
 
-                        var bin: String = input?.text.toString()
-                        var dec: Int = Integer.parseInt(bin.toString(), 2)
-                        result?.setText("" + dec).toString()
+//                        val d= getOutput(bin.toString())
+//                        result?.text= d.toString()
 
-                        val intent = Intent(requireContext(), ExplainActivity::class.java)
-                        intent.putExtra("aa", bin)
-                        intent.putExtra("kkk", dec)
-                        startActivity(intent)
+                            var dec: Int = Integer.parseInt(bin.toString(), 2)
+                            result?.setText("" + dec).toString()
+//
+                            val intent = Intent(requireContext(), ExplainActivity::class.java)
+                            intent.putExtra("aa", bin)
+                            intent.putExtra("kkk", dec)
+                            Log.i(TAG, "onCreateView: isworked?"+dec)
+                            startActivity(intent)
 
-                    } else if (spinner.selectedItem == "Binary" && (spinner2.selectedItem == "Binary")) {
+
+                    }
+                    else if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Binary"))
+                    {
+
+                        code=2
 
                         var bin: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("bb", bin)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Binary" && (spinner2.selectedItem == "Octal")) {
+                    } else if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Octal")) {
+                        code=3
                         var bin: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("cc", bin)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Binary" && (spinner2.selectedItem == "Hexadecimal")) {
+                    } else if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Hexadecimal")) {
+                        code=4
                         var bin: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("dd", bin)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Decimal" && (spinner2.selectedItem == "Decimal")) {
+                    } else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Decimal")) {
+                        code=5
                         var dec: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("ee", dec)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Decimal" && (spinner2.selectedItem == "Binary")) {
+                    } else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Binary")) {
+                        code=6
                         var dec: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("ff", dec)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Decimal" && (spinner2.selectedItem == "Octal")) {
+                    } else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Octal")) {
+                        code=7
                         var dec: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("gg", dec)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Decimal" && (spinner2.selectedItem == "Hexadecimal")) {
+                    } else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Hexadecimal")) {
+                        code=8
                         var dec: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("hh", dec)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Octal" && (spinner2.selectedItem == "Octal")) {
+                    } else if (spinner!!.selectedItem == "Octal" && (spinner2!!.selectedItem == "Octal")) {
+                        code=9
                         var octal: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("ii", octal)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Octal" && (spinner2.selectedItem == "Binary")) {
+                    } else if (spinner!!.selectedItem == "Octal" && (spinner2!!.selectedItem == "Binary")) {
+                        code=10
                         var octal: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("jj", octal)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Octal" && (spinner2.selectedItem == "Decimal")) {
+                    } else if (spinner!!.selectedItem == "Octal" && (spinner2!!.selectedItem == "Decimal")) {
+                        code=11
                         var octal: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("kk", octal)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Octal" && (spinner2.selectedItem == "Hexadecimal")) {
+                    } else if (spinner!!.selectedItem == "Octal" && (spinner2!!.selectedItem == "Hexadecimal")) {
+                        code=12
                         var octal: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("ll", octal)
 
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Hexadecimal" && (spinner2.selectedItem == "Hexadecimal")) {
+                    } else if (spinner!!.selectedItem == "Hexadecimal" && (spinner2!!.selectedItem == "Hexadecimal")) {
+                        code=13
                         var hexa: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("mm", hexa)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Hexadecimal" && (spinner2.selectedItem == "Binary")) {
+                    } else if (spinner!!.selectedItem == "Hexadecimal" && (spinner2!!.selectedItem == "Binary")) {
+                        code=14
                         var hexa: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("oo", hexa)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Hexadecimal" && (spinner2.selectedItem == "Decimal")) {
+                    } else if (spinner!!.selectedItem == "Hexadecimal" && (spinner2!!.selectedItem == "Decimal")) {
+                        code=15
                         var hexa: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("pp", hexa)
                         startActivity(intent)
-                    } else if (spinner.selectedItem == "Hexadecimal" && (spinner2.selectedItem == "Octal")) {
+                    } else if (spinner!!.selectedItem == "Hexadecimal" && (spinner2!!.selectedItem == "Octal")) {
+                        code=16
                         var hexa: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("qq", hexa)
@@ -430,8 +467,7 @@ class CodingFragment : Fragment() {
 
         }
 
-        return v
-
+        return view
     }
 
 }

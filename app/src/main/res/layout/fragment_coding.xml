@@ -98,6 +98,9 @@
 
                                     android:layout_marginLeft="10dp"
                                     >
+
+
+
                                     <Spinner
                                         android:id="@+id/spinner1"
                                         android:layout_width="match_parent"

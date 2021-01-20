@@ -1,5 +1,6 @@
 package com.example.demoapp
 
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -54,6 +55,7 @@ class ExplainActivity : AppCompatActivity() {
 
     private var inputtext: TextView? = null
     private var outputText: TextView? = null
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_explain)
@@ -83,6 +85,7 @@ class ExplainActivity : AppCompatActivity() {
         text13 = findViewById(R.id.finb2dresult)
 
 
+
 //        text2 = findViewById(R.id.b2dcalculation)
 //        text21 = findViewById(R.id.b2dcalculationresult)
 //        text21 = findViewById(R.id.b2dcalculationresult)
@@ -98,13 +101,65 @@ class ExplainActivity : AppCompatActivity() {
 //        text42 = findViewById(R.id.b2dcalculationresult)
 
 
-        rr1?.visibility = View.VISIBLE
-        val dd: String? = intent.getStringExtra("aa")
-        val txt = intent.getIntExtra("kkk", 0)
-        Log.d(TAG, "txt: $txt")
-        text1?.setText("($dd)")
-        text12?.setText("=$dd")
-        text13.text = txt.toString()
+        if(code==1)
+        {
+            rr1?.visibility = View.VISIBLE
+            val dd: String? = intent.getStringExtra("aa")
+            Log.i(TAG, "onCreate: iscorect?"+dd)
+            val txt = intent.getIntExtra("kkk", 0)
+            Log.i(TAG, "onCreate: ison?"+txt)
+            Log.d(TAG, "txt: $txt")
+            text1?.setText("($dd)")
+            text12?.setText(""+txt)
+            text13.text = txt.toString()
+        }
+        else if(code==2)
+        {
+            rr2?.visibility = View.VISIBLE
+        }
+        else if(code==3)
+        {
+            rr3?.visibility = View.VISIBLE
+        }
+        else if(code==4)
+        {
+            rr4?.visibility = View.VISIBLE
+        }
+        else if(code==5)
+        {
+            rr5?.visibility = View.VISIBLE
+        }
+        else if(code==6)
+        {
+            rr6?.visibility = View.VISIBLE
+        }
+        else if(code==7)
+        {
+            rr7?.visibility = View.VISIBLE
+        }
+        else if(code==8)
+        {
+            rr8?.visibility = View.VISIBLE
+        }
+        else if(code==9)
+        {
+            rr9?.visibility = View.VISIBLE
+        }
+        else if(code==10)
+        {
+            rr10t?.visibility = View.VISIBLE
+        }
+        else if(code==11)
+        {
+            rr11?.visibility = View.VISIBLE
+        }
+        else if(code==12)
+        {
+            rr12?.visibility = View.VISIBLE
+        }
+
+
+
 
 
     }
