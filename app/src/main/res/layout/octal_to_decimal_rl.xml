@@ -69,6 +69,7 @@
 
 
     <TextView
+        android:id="@+id/octalresultid"
         android:text="=1000"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"

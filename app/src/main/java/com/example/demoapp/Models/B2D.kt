@@ -1,14 +1,15 @@
-package com.example.demoapp
+package com.example.demoapp.Models
 
 import android.content.ContentValues
 import android.util.Log
+import com.example.demoapp.Fragments.code
 import kotlin.math.pow
 
 
 
 object B2D {
 
-    private var lol:Int=0
+
     fun getOutput(str: String): String {
 
         // 100.100
@@ -67,12 +68,24 @@ object B2D {
             Log.d(ContentValues.TAG, "getOutput: ${ans.plus(ans2)}")
 
 
-            return "=${value + value2}" + "\n" + "= ${sumval1 + sumval2}" + "\n" + "=${(ans.plus(ans2))}"
+        var a="${(ans.plus(ans2))}"
+
+        var b="=${value + value2}" + "\n" + "= ${sumval1 + sumval2}" + "\n" + "=${(ans.plus(ans2))}"
+
+        if (code ==1)
+        {
+            return b
 
         }
+        else
+
+            return a
+
+    }
 
 
     }
+
 
 
 

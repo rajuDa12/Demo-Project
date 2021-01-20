@@ -1,5 +1,6 @@
-package com.example.demoapp
+package com.example.demoapp.Fragments
 
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
@@ -12,10 +13,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.example.demoapp.B2D.getOutput
+import com.example.demoapp.Activites.ExplainActivity
+import com.example.demoapp.Models.B2D.getOutput
+import com.example.demoapp.Models.H2D.getOutput3
+import com.example.demoapp.Models.O2D.getOutput2
+import com.example.demoapp.R
 
 
- var code:Int=0
+var code:Int=0
 class CodingFragment : Fragment() {
 
     private var convert: Button? = null
@@ -32,6 +37,7 @@ class CodingFragment : Fragment() {
     private var Adapter2: ArrayAdapter<String>? = null
 
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
@@ -97,7 +103,6 @@ class CodingFragment : Fragment() {
                 if (spinner2 != null) {
                     if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Decimal")) {
 
-                        code=21
                         if (TextUtils.isEmpty(input?.text.toString())) {
                             input?.setError("enter a valid number")
                             input?.requestFocus()
@@ -105,46 +110,36 @@ class CodingFragment : Fragment() {
                         } else {
 
                             val bin: String? = input?.getText()?.trim().toString()
-
                             val d= getOutput(bin.toString())
                             result?.text= d.toString()
-
-//                            val dec: Int = Integer.parseInt(bin.toString(), 2)
-//                            result?.setText("" + dec)
 
                         }
 
                     } else if (spinner2 != null) {
-                        if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Octal")) {
-                            code=22
+                        if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Octal"))
+                        {
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
-                                input?.setError("enter a valid number")
+                                input?.error = "enter a valid number"
                                 input?.requestFocus()
                             } else {
-                                val bin: String? = input?.getText()?.trim().toString()
 
-                                val d= getOutput(bin.toString())
-                                result?.text= d.toString()
-//                                val bin: String = input?.text?.trim().toString()
-//                                val dec: Int = Integer.parseInt(bin.toString(), 2)
-//                                val octal: String = Integer.toOctalString(dec.toInt())
-//                                result?.setText("" + octal)
+                                Toast.makeText(context, "binary to octal", Toast.LENGTH_SHORT).show()
+
                             }
 
 
-                        } else if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Hexadecimal")) {
+                        }
+                        else if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Hexadecimal")) {
 
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
-                                input?.setError("enter a valid number")
+                                input?.error = "enter a valid number"
                                 input?.requestFocus()
                             } else {
 
-                                val bin: String = input?.text?.trim().toString()
-                                val dec: Int = Integer.parseInt(bin.toString(), 2)
-                                val hexa: String = Integer.toHexString(dec.toInt())
-                                result?.setText("" + hexa)
+                                Toast.makeText(context, "binary to hexadecimal", Toast.LENGTH_SHORT).show()
+
                             }
 
 
@@ -156,7 +151,7 @@ class CodingFragment : Fragment() {
                                 input?.requestFocus()
                             } else {
                                 val bin: String = input?.text?.trim().toString()
-                                result?.setText("" + bin)
+                                result?.text = "" + bin
                             }
 
                         }
@@ -184,9 +179,10 @@ class CodingFragment : Fragment() {
                                 input?.requestFocus()
                             } else {
 
-                                val dec: String = input?.getText().toString()
-                                val bin: String = Integer.toBinaryString(dec.toInt())
-                                result?.setText("" + bin)
+                                var decimal = input?.text.toString().toInt()
+                                val binary: Long = convertDecimalTobinary(decimal)
+                                result?.setText("" + binary)
+
                             }
 
 
@@ -198,13 +194,15 @@ class CodingFragment : Fragment() {
                                 input?.requestFocus()
                             } else {
 
-                                val dec: String = input?.text?.trim().toString()
-                                val octal: String = Integer.toOctalString(dec.toInt())
-                                result?.setText("" + octal)
+
+                                var decimal = input?.text.toString().toInt()
+                                val binary: Long = convertDecimalTooctal(decimal)
+                                result?.setText("" + binary)
 
                             }
 
-                        } else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Hexadecimal")) {
+                        }
+                        else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Hexadecimal")) {
 
 
                             if (TextUtils.isEmpty(input?.text.toString())) {
@@ -212,9 +210,12 @@ class CodingFragment : Fragment() {
                                 input?.requestFocus()
                             } else {
 
-                                val dec: String = input?.text?.trim().toString()
-                                val hexa: String = Integer.toHexString(dec.toInt())
-                                result?.setText("" + hexa)
+
+
+                                var decimal = input?.text.toString().toInt()
+                                val binary: Long = convertDecimalTohexa(decimal)
+                                result?.setText("" + binary)
+
                             }
                         }
 
@@ -228,6 +229,7 @@ class CodingFragment : Fragment() {
                                 input?.setError("enter a valid number")
                                 input?.requestFocus()
                             } else {
+
                                 val octal: String = input?.text?.trim().toString()
                                 result?.setText("" + octal)
                             }
@@ -239,9 +241,9 @@ class CodingFragment : Fragment() {
                                 input?.setError("enter a valid number")
                                 input?.requestFocus()
                             } else {
-                                val octal: String = input?.text?.trim().toString()
-                                val dec: Int = Integer.parseInt(octal.toString(), 8)
-                                result?.setText("" + dec)
+                                val octal: String? = input?.text?.trim().toString()
+                                val d= getOutput2(octal.toString())
+                                result?.text= d.toString()
                             }
 
 
@@ -251,10 +253,8 @@ class CodingFragment : Fragment() {
                                 input?.setError("enter a valid number")
                                 input?.requestFocus()
                             } else {
-                                val octal: String = input?.text?.trim().toString()
-                                val dec: Int = Integer.parseInt(octal.toString(), 8)
-                                val bin: String = Integer.toBinaryString(dec.toInt())
-                                result?.setText("" + bin)
+
+                                Toast.makeText(context, "octal to binary", Toast.LENGTH_SHORT).show()
 
                             }
 
@@ -266,11 +266,12 @@ class CodingFragment : Fragment() {
                                 input?.setError("enter a valid number")
                                 input?.requestFocus()
                             } else {
-                                val octal: String = input?.text?.trim().toString()
-                                val dec: Int = Integer.parseInt(octal.toString(), 8)
-                                val hexa: String = Integer.toHexString(dec.toInt())
+                                Toast.makeText(context, "octal to hexadecimal", Toast.LENGTH_SHORT).show()
+//                                val octal: String = input?.text?.trim().toString()
+//                                val dec: Int = Integer.parseInt(octal.toString(), 8)
+//                                val hexa: String = Integer.toHexString(dec.toInt())
 
-                                result?.setText("" + hexa)
+//                                result?.setText("" + hexa)
                             }
 
                         }
@@ -295,9 +296,9 @@ class CodingFragment : Fragment() {
                                 input?.setError("enter a valid number")
                                 input?.requestFocus()
                             } else {
-                                val hexa: String = input?.text?.trim().toString()
-                                val dec: Int = Integer.parseInt(hexa.toString(), 16)
-                                result?.setText("" + dec)
+                                val hexa: String? = input?.text?.trim().toString()
+                                val d= getOutput3(hexa.toString())
+                                result?.text= d.toString()
                             }
 
 
@@ -307,10 +308,11 @@ class CodingFragment : Fragment() {
                                 input?.setError("enter a valid number")
                                 input?.requestFocus()
                             } else {
-                                val hexa: String = input?.text?.trim().toString()
-                                val dec: Int = Integer.parseInt(hexa.toString(), 16)
-                                val bin: String = Integer.toBinaryString(dec.toInt())
-                                result?.setText("" + bin)
+                                Toast.makeText(context, "hexa to binary..", Toast.LENGTH_SHORT).show()
+//                                val hexa: String = input?.text?.trim().toString()
+//                                val dec: Int = Integer.parseInt(hexa.toString(), 16)
+//                                val bin: String = Integer.toBinaryString(dec.toInt())
+//                                result?.setText("" + bin)
                             }
 
 
@@ -320,10 +322,13 @@ class CodingFragment : Fragment() {
                                 input?.setError("enter a valid number")
                                 input?.requestFocus()
                             } else {
-                                val hexa: String = input?.text?.trim().toString()
-                                val dec: Int = Integer.parseInt(hexa.toString(), 16)
-                                val octal: String = Integer.toOctalString(dec.toInt())
-                                result?.setText("" + octal)
+
+                                Toast.makeText(context, "hexa to octal..", Toast.LENGTH_SHORT).show()
+
+//                                val hexa: String = input?.text?.trim().toString()
+//                                val dec: Int = Integer.parseInt(hexa.toString(), 16)
+//                                val octal: String = Integer.toOctalString(dec.toInt())
+//                                result?.setText("" + octal)
                             }
 
 
@@ -347,22 +352,14 @@ class CodingFragment : Fragment() {
                     if (spinner!!.selectedItem == "Binary" && (spinner2!!.selectedItem == "Decimal")) {
                           code=1
 
-                            var bin: String = input?.text?.trim().toString()
-//                            var d= getOutput(bin.toString())
-//                            result?.setText(""+d)
 
 
-//                        val d= getOutput(bin.toString())
-//                        result?.text= d.toString()
+                        val dec: String? = input?.text?.trim().toString()
+                        val d= getOutput(dec.toString())
+                        val intent = Intent(requireContext(), ExplainActivity::class.java)
+                        intent.putExtra("kkk","=${dec}"+"\n"+d)
+                        startActivity(intent)
 
-                            var dec: Int = Integer.parseInt(bin.toString(), 2)
-                            result?.setText("" + dec).toString()
-//
-                            val intent = Intent(requireContext(), ExplainActivity::class.java)
-                            intent.putExtra("aa", bin)
-                            intent.putExtra("kkk", dec)
-                            Log.i(TAG, "onCreateView: isworked?"+dec)
-                            startActivity(intent)
 
 
                     }
@@ -387,7 +384,8 @@ class CodingFragment : Fragment() {
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
                         intent.putExtra("dd", bin)
                         startActivity(intent)
-                    } else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Decimal")) {
+                    }
+                    else if (spinner!!.selectedItem == "Decimal" && (spinner2!!.selectedItem == "Decimal")) {
                         code=5
                         var dec: String = input?.text.toString()
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
@@ -425,9 +423,11 @@ class CodingFragment : Fragment() {
                         startActivity(intent)
                     } else if (spinner!!.selectedItem == "Octal" && (spinner2!!.selectedItem == "Decimal")) {
                         code=11
-                        var octal: String = input?.text.toString()
+
+                        val octal: String? = input?.text?.trim().toString()
+                        val d= getOutput2(octal.toString())
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
-                        intent.putExtra("kk", octal)
+                        intent.putExtra("kk","=${octal}"+"\n"+d)
                         startActivity(intent)
                     } else if (spinner!!.selectedItem == "Octal" && (spinner2!!.selectedItem == "Hexadecimal")) {
                         code=12
@@ -450,10 +450,13 @@ class CodingFragment : Fragment() {
                         startActivity(intent)
                     } else if (spinner!!.selectedItem == "Hexadecimal" && (spinner2!!.selectedItem == "Decimal")) {
                         code=15
-                        var hexa: String = input?.text.toString()
+
+                        val hexa: String? = input?.text?.trim().toString()
+                        val d= getOutput3(hexa.toString())
                         val intent = Intent(requireContext(), ExplainActivity::class.java)
-                        intent.putExtra("pp", hexa)
+                        intent.putExtra("pp","=${hexa}"+"\n"+d)
                         startActivity(intent)
+
                     } else if (spinner!!.selectedItem == "Hexadecimal" && (spinner2!!.selectedItem == "Octal")) {
                         code=16
                         var hexa: String = input?.text.toString()
@@ -469,5 +472,78 @@ class CodingFragment : Fragment() {
 
         return view
     }
+
+    fun convertDecimalTohexa(n: Int): Long {
+        var n = n
+        var binaryNumber: Long = 0
+        var remainder: Int
+        var i = 1
+        var step = 1
+        val builder = StringBuilder()
+        while (n != 0) {
+            remainder = n % 16
+
+
+            val text = String.format("%d/16= %d Remainder=%d\n", n, n / 16, remainder)
+
+            builder.append(text)
+
+            n /= 16
+            binaryNumber += (remainder * i).toLong()
+            i *= 10
+        }
+//        Resultdteails?.text = "" + builder
+
+        return binaryNumber
+    }
+
+    fun convertDecimalTooctal(n: Int): Long {
+        var n = n
+        var binaryNumber: Long = 0
+        var remainder: Int
+        var i = 1
+        var step = 1
+        val builder = StringBuilder()
+        while (n != 0) {
+            remainder = n % 8
+
+
+            val text = String.format("%d/8= %d Remainder=%d\n", n, n / 8, remainder)
+
+            builder.append(text)
+
+            n /= 8
+            binaryNumber += (remainder * i).toLong()
+            i *= 10
+        }
+//        Resultdteails?.text = "" + builder
+
+        return binaryNumber
+    }
+
+    fun convertDecimalTobinary(n: Int): Long {
+        var n = n
+        var binaryNumber: Long = 0
+        var remainder: Int
+        var i = 1
+        var step = 1
+        val builder = StringBuilder()
+        while (n != 0) {
+            remainder = n % 2
+
+
+            val text = String.format("%d/2= %d Remainder=%d\n", n, n / 2, remainder)
+
+            builder.append(text)
+
+            n /= 2
+            binaryNumber += (remainder * i).toLong()
+            i *= 10
+        }
+//        Resultdteails?.text = "" + builder
+
+        return binaryNumber
+    }
+
 
 }

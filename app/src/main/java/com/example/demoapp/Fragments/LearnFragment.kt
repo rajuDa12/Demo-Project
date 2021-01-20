@@ -1,4 +1,4 @@
-package com.example.demoapp
+package com.example.demoapp.Fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import com.example.demoapp.Activites.InformationActivity
+import com.example.demoapp.R
 
 
 class LearnFragment : Fragment() {

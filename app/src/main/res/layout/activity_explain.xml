@@ -30,7 +30,7 @@
 
 
         <include
-            layout="@layout/bin_to_decimal_rl">
+            layout="@layout/binary_to_binary_rl">
 
         </include>
 
@@ -39,13 +39,12 @@
     <RelativeLayout
         android:visibility="gone"
         android:id="@+id/rlt2"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
         <include
-            layout="@layout/binary_to_octal_rl">
+            layout="@layout/bin_to_decimal_rl">
 
         </include>
 
@@ -60,7 +59,7 @@
 
 
         <include
-            layout="@layout/binary_to_hexadecimal_rl">
+            layout="@layout/binary_to_octal_rl">
 
         </include>
 
@@ -78,7 +77,7 @@
 
 
         <include
-            layout="@layout/decimal_to_binary_rl">
+            layout="@layout/binary_to_hexadecimal_rl">
 
         </include>
 
@@ -93,7 +92,7 @@
 
 
         <include
-            layout="@layout/decimal_to_octal_rl">
+            layout="@layout/decimal_to_decimal_rl">
 
         </include>
 
@@ -108,7 +107,7 @@
 
 
         <include
-            layout="@layout/decimal_to_hexadecimal_rl">
+            layout="@layout/decimal_to_binary_rl">
 
         </include>
 
@@ -125,7 +124,7 @@
 
 
         <include
-            layout="@layout/octal_to_binary_rl">
+            layout="@layout/decimal_to_octal_rl">
 
         </include>
 
@@ -140,6 +139,52 @@
 
 
         <include
+            layout="@layout/decimal_to_hexadecimal_rl">
+
+        </include>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rlt9"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <include
+            layout="@layout/octal_to_octal">
+
+        </include>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rlt10t"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <include
+            layout="@layout/octal_to_binary_rl">
+
+        </include>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rlt11"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <include
             layout="@layout/octal_to_decimal_rl">
 
         </include>
@@ -148,7 +193,7 @@
     </RelativeLayout>
     <RelativeLayout
         android:visibility="gone"
-        android:id="@+id/rlt9"
+        android:id="@+id/rlt12"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -164,9 +209,31 @@
 
 
 
+
+
+
+
+
+
+
     <RelativeLayout
         android:visibility="gone"
-        android:id="@+id/rlt10t"
+        android:id="@+id/rlt13"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <include
+            layout="@layout/hex_to_hexa_rl">
+
+        </include>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rlt14"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -181,7 +248,7 @@
     </RelativeLayout>
     <RelativeLayout
         android:visibility="gone"
-        android:id="@+id/rlt11"
+        android:id="@+id/rlt15"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -196,7 +263,7 @@
     </RelativeLayout>
     <RelativeLayout
         android:visibility="gone"
-        android:id="@+id/rlt12"
+        android:id="@+id/rlt16"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -209,6 +276,7 @@
 
 
     </RelativeLayout>
+
 
 
 

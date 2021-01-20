@@ -1,4 +1,4 @@
-package com.example.demoapp
+package com.example.demoapp.Activites
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
+import com.example.demoapp.Fragments.CodingFragment
+import com.example.demoapp.Fragments.LearnFragment
+import com.example.demoapp.R
 import com.google.android.material.tabs.TabLayout
 //import com.onesignal.OneSignal
 import com.teamokcodex.numbersystem.Adapter.PageAdapter

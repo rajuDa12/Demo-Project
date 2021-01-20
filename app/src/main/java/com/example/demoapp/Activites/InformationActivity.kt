@@ -1,12 +1,12 @@
-package com.example.demoapp
+package com.example.demoapp.Activites
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.example.demoapp.R
 import kotlin.random.Random
 
 

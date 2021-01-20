@@ -1,7 +1,8 @@
-package com.example.demoapp
+package com.example.demoapp.Activites
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.demoapp.R
 
 class ContactActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
